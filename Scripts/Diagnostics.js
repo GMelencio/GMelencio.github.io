@@ -16,18 +16,18 @@ function CreateDiagnosticLabels(lines) {
     DiagnosticLabels = new Object();
     var count = lines * 2;
 
-    for (var i = 0; i < lines; i++) {
+    for (var i = 0; i <= lines; i++) {
         var label = new DiagnosticLabel(i, "", i + ":");
         label.div.style.position = 'absolute';
-        label.div.style.top = ((i * 30) + 10) + 'px'
-        label.div.style.left = '0px';
+        label.div.style.top = ((i * 30) + 15) + 'px'
+        label.div.style.left = '90px';
         document.body.appendChild(label.div);
         
         DiagnosticLabels["diagnosticLabel" + i] = label;
 
         var label2 = new DiagnosticLabel(i + lines, "", i + lines + ":");
         label2.div.style.position = 'absolute';
-        label2.div.style.top = ((i * 30) + 10) + 'px'
+        label2.div.style.top = ((i * 30) + 15) + 'px'
         label2.div.style.left = (window.innerWidth / 2) + 50 + 'px'
         document.body.appendChild(label2.div);
         DiagnosticLabels["diagnosticLabel" + i + lines] = label2;
