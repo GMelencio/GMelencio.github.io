@@ -72,7 +72,6 @@ function TryDrawObject(handGesture) {
                     var intersection = raycaster.intersectObject(tube, true);
                     if (intersection.length > 0) {
                         selectedTube = new SelectedTube(tube);
-                        UpdateLabelText(2, "Tube Intersected at " + handGesture.pinchSpace.pinchCenter);
                     }
                 }
             );
