@@ -63,10 +63,11 @@ function TryDrawObject(handGesture) {
 
             var dir = new THREE.Vector3();
             dir.sub(p1, p2).normalize();
-
+            
+            //Create a raycaster between the pinch fingers position to figure out if another geometry falls in between
             var raycaster = new THREE.Raycaster(p2, dir, 0, handGesture.pinchSpace.pinchRadius * 40);
-
-
+            
+            //Set as selected any of the tubes that exist that are wihin the pinch
             drawnTubes.forEach(
                 function (tube, number, array) {
                     var intersection = raycaster.intersectObject(tube, true);
@@ -78,12 +79,16 @@ function TryDrawObject(handGesture) {
             );
         }
         else {
+            
+            //rudimentarty attempt at doing object translation
             if (prevPalmPosition) {
                 selectedTube.mesh.translateX(handGesture.palmPosition[0] - prevPalmPosition[0]);
                 selectedTube.mesh.translateY(handGesture.palmPosition[1] - prevPalmPosition[1]);
                 selectedTube.mesh.translateZ(handGesture.palmPosition[2] - prevPalmPosition[2]);
             }
-
+            
+            //rudimentary attempts at rotating objects in the same manner as the hand is rotating
+            
             //if (prevPalmNormal) {
             //    //selectedTube.mesh.quaternion.setFromUnitVectors(makeVector(prevPalmNormal), makeVector(handGesture.palmNormal));
             //    //selectedTube.mesh.rotation.fromArray(handGesture.palmNormal);
