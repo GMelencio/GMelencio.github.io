@@ -1,6 +1,6 @@
 ﻿
 ShowStatsElement();
-CreateDiagnosticLabels(2);
+CreateDiagnosticLabels(3);
 var DiagnosticLabels;
 
 function ShowStatsElement() {
@@ -16,7 +16,7 @@ function CreateDiagnosticLabels(lines) {
     DiagnosticLabels = new Object();
     var count = lines * 2;
 
-    for (var i = 0; i <= lines; i++) {
+    for (var i = 0; i < lines; i++) {
         var label = new DiagnosticLabel(i, "", i + ":");
         label.div.style.position = 'absolute';
         label.div.style.top = ((i * 30) + 15) + 'px'
