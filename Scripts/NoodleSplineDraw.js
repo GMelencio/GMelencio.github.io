@@ -50,7 +50,6 @@ var clearGestureEnabled = true;
 
 function TryDrawObject(handGesture) {
     pinchSpheres.forEach(removePinchSpheresFromScene);
-    UpdateLabelText(2, "");
 
     if (handGesture.isPinching && !handGesture.isInClearMode) {
         if (!selectedTube) {
@@ -133,8 +132,6 @@ function TryDrawObject(handGesture) {
             } else {
                 splineCurve.AddPoint(handGesture.drawPoint);
             }
-
-            UpdateLabelText(1, "Distance " + splineCurve.DistanceOfEnds());
         }
         else if (handGesture.isInClearMode && clearGestureEnabled) {
             function removeFromScene(object, number, array) {
