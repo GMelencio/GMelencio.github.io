@@ -46,13 +46,13 @@ var enableRoll = true;
 var enablePitch = true;
 var enableYaw = true;
 
-var clearGestureEnabled = false;
+var clearGestureEnabled = true;
 
 function TryDrawObject(handGesture) {
     pinchSpheres.forEach(removePinchSpheresFromScene);
     UpdateLabelText(2, "");
 
-    if (handGesture.isPinching) {
+    if (handGesture.isPinching && !handGesture.isInClearMode) {
         if (!selectedTube) {
             var pinchBall = new PinchSphere(handGesture.pinchSpace.pinchCenter, 3, 45);
             pinchSpheres.push(pinchBall);
